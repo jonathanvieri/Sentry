@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j11-kZ-aCU" userLabel="Video View">
-                                <rect key="frame" x="32" y="119" width="329" height="200"/>
+                                <rect key="frame" x="0.0" y="119" width="393" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="kJY-t7-Jkx"/>
@@ -103,12 +103,25 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3y-fP-ojF">
+                                <rect key="frame" x="237.66666666666663" y="335" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="EWS-HN-90c"/>
+                                    <constraint firstAttribute="height" constant="50" id="oPj-Tq-Tj4"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.clockwise.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="restartButtonPressed:" destination="zPf-u2-6LN" eventType="touchUpInside" id="k5f-Ic-PUh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aze-Lm-F6R"/>
                         <color key="backgroundColor" name="Blue"/>
                         <constraints>
-                            <constraint firstItem="j11-kZ-aCU" firstAttribute="leading" secondItem="aze-Lm-F6R" secondAttribute="leading" constant="32" id="1nh-te-lEx"/>
-                            <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" secondItem="j11-kZ-aCU" secondAttribute="trailing" constant="32" id="2gh-no-wxG"/>
+                            <constraint firstItem="j11-kZ-aCU" firstAttribute="leading" secondItem="aze-Lm-F6R" secondAttribute="leading" id="1nh-te-lEx"/>
+                            <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" secondItem="j11-kZ-aCU" secondAttribute="trailing" id="2gh-no-wxG"/>
                             <constraint firstItem="Not-ER-F7k" firstAttribute="centerX" secondItem="7HE-dp-7y8" secondAttribute="centerX" id="7Xg-Iq-EX4"/>
                             <constraint firstItem="Cav-hq-cf7" firstAttribute="top" secondItem="m50-g8-fDa" secondAttribute="bottom" constant="8" id="A1n-rm-2ok"/>
                             <constraint firstItem="j11-kZ-aCU" firstAttribute="top" secondItem="aze-Lm-F6R" secondAttribute="top" constant="16" id="II8-Za-qD1"/>
@@ -117,7 +130,10 @@
                             <constraint firstItem="QSr-6s-3l5" firstAttribute="leading" secondItem="Cav-hq-cf7" secondAttribute="trailing" constant="4" id="eqJ-fE-eja"/>
                             <constraint firstItem="m50-g8-fDa" firstAttribute="leading" secondItem="aze-Lm-F6R" secondAttribute="leading" constant="32" id="jDo-EV-tSX"/>
                             <constraint firstItem="Not-ER-F7k" firstAttribute="top" secondItem="j11-kZ-aCU" secondAttribute="bottom" constant="16" id="mMh-ra-zG5"/>
+                            <constraint firstItem="j3y-fP-ojF" firstAttribute="top" secondItem="j11-kZ-aCU" secondAttribute="bottom" constant="16" id="rGn-uE-Yip"/>
+                            <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QSr-6s-3l5" secondAttribute="trailing" symbolic="YES" id="rNU-jM-NdT"/>
                             <constraint firstItem="Cav-hq-cf7" firstAttribute="leading" secondItem="aze-Lm-F6R" secondAttribute="leading" constant="32" id="uAK-uu-THh"/>
+                            <constraint firstItem="j3y-fP-ojF" firstAttribute="leading" secondItem="Not-ER-F7k" secondAttribute="trailing" constant="16" id="xcE-fl-Sa5"/>
                             <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" secondItem="m50-g8-fDa" secondAttribute="trailing" constant="32" id="xor-LB-YrM"/>
                         </constraints>
                     </view>
@@ -125,6 +141,7 @@
                     <connections>
                         <outlet property="elapsedTimeLabel" destination="Cav-hq-cf7" id="Q9D-4F-mn7"/>
                         <outlet property="playPauseButton" destination="Not-ER-F7k" id="yP9-F0-5n5"/>
+                        <outlet property="restartButton" destination="j3y-fP-ojF" id="eVr-aI-XrG"/>
                         <outlet property="timeSlider" destination="m50-g8-fDa" id="jxP-ad-gh9"/>
                         <outlet property="totalTimeLabel" destination="QSr-6s-3l5" id="iIy-b9-XYY"/>
                         <outlet property="videoView" destination="j11-kZ-aCU" id="z6q-Kp-yc6"/>
@@ -155,6 +172,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise.circle.fill" catalog="system" width="128" height="123"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="123"/>
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Blue">

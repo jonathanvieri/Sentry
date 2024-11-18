@@ -15,7 +15,8 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
-    
+    @IBOutlet weak var restartButton: UIButton!
+
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
@@ -26,6 +27,7 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
 
         setupVideoPlayer()
+        addVideoCompletionObserver()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,6 +39,8 @@ class VideoViewController: UIViewController {
         if let timeObserver = timeObserver {
             player.removeTimeObserver(timeObserver)
         }
+        
+        NotificationCenter.default.removeObserver(self, name: AVPlayerItem.didPlayToEndTimeNotification, object: player.currentItem)
     }
 
     private func setupVideoPlayer() {
@@ -98,6 +102,15 @@ class VideoViewController: UIViewController {
         }
     }
     
+    private func addVideoCompletionObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(videoDidFinishPlaying), name: AVPlayerItem.didPlayToEndTimeNotification, object: player.currentItem)
+    }
+    
+    @objc private func videoDidFinishPlaying() {
+        print("Video finished playing")
+        restartButton.isHidden = false
+    }
+    
     @IBAction func playPauseButtonPressed(_ sender: UIButton) {
         if player.timeControlStatus == .playing {
             player.pause()
@@ -120,6 +133,7 @@ class VideoViewController: UIViewController {
                 print("UI Slider is moved")
                 let chosenTime = CMTime(seconds: Double(sender.value), preferredTimescale: 1)
                 player.seek(to: chosenTime)
+                restartButton.isHidden = true
             case .ended:
                 print("Ended UISlider event")
                 if wasPlayingBefore {
@@ -132,6 +146,12 @@ class VideoViewController: UIViewController {
         }
     }
     
+    @IBAction func restartButtonPressed(_ sender: Any) {
+        player.seek(to: .zero)
+        player.play()
+        restartButton.isHidden = true
+        updatePlayButtonImage(toPause: true)
+    }
     
     
 }
