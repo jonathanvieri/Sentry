@@ -153,5 +153,15 @@ class VideoViewController: UIViewController {
         updatePlayButtonImage(toPause: true)
     }
     
+    @IBAction func skipForwardButtonpressed(_ sender: UIButton) {
+        let currentTime = player.currentTime()
+        let forwardedTime = CMTimeAdd(currentTime, CMTime(seconds: 5, preferredTimescale: 1))
+        player.seek(to: forwardedTime)
+    }
     
+    @IBAction func skipBackwardButtonPressed(_ sender: UIButton) {
+        let currentTime = player.currentTime()
+        let backwardedTime = CMTimeSubtract(currentTime, CMTime(seconds: 5, preferredTimescale: 1))
+        player.seek(to: backwardedTime)
+    }
 }

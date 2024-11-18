@@ -116,6 +116,32 @@
                                     <action selector="restartButtonPressed:" destination="zPf-u2-6LN" eventType="touchUpInside" id="k5f-Ic-PUh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idV-jX-N1i" userLabel="Skip Forward Button">
+                                <rect key="frame" x="89.666666666666671" y="335" width="50.000000000000014" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XaD-WU-oDc"/>
+                                    <constraint firstAttribute="width" constant="50" id="t1P-vM-cJ6"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="forward.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="skipForwardButtonpressed:" destination="zPf-u2-6LN" eventType="touchUpInside" id="hik-E6-Du8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R1-Su-mc6" userLabel="Skip Backward Button">
+                                <rect key="frame" x="31.666666666666671" y="335" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T0w-0s-kfC"/>
+                                    <constraint firstAttribute="width" constant="50" id="fsJ-aT-Z2z"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="backward.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="skipBackwardButtonPressed:" destination="zPf-u2-6LN" eventType="touchUpInside" id="HqW-Ni-iy0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aze-Lm-F6R"/>
                         <color key="backgroundColor" name="Blue"/>
@@ -124,17 +150,21 @@
                             <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" secondItem="j11-kZ-aCU" secondAttribute="trailing" id="2gh-no-wxG"/>
                             <constraint firstItem="Not-ER-F7k" firstAttribute="centerX" secondItem="7HE-dp-7y8" secondAttribute="centerX" id="7Xg-Iq-EX4"/>
                             <constraint firstItem="Cav-hq-cf7" firstAttribute="top" secondItem="m50-g8-fDa" secondAttribute="bottom" constant="8" id="A1n-rm-2ok"/>
+                            <constraint firstItem="Not-ER-F7k" firstAttribute="leading" secondItem="idV-jX-N1i" secondAttribute="trailing" constant="32" id="AvP-e1-s02"/>
+                            <constraint firstItem="0R1-Su-mc6" firstAttribute="top" secondItem="j11-kZ-aCU" secondAttribute="bottom" constant="16" id="FyH-yh-n3H"/>
                             <constraint firstItem="j11-kZ-aCU" firstAttribute="top" secondItem="aze-Lm-F6R" secondAttribute="top" constant="16" id="II8-Za-qD1"/>
                             <constraint firstItem="m50-g8-fDa" firstAttribute="top" secondItem="Not-ER-F7k" secondAttribute="bottom" constant="24" id="KRv-66-rCz"/>
                             <constraint firstItem="QSr-6s-3l5" firstAttribute="top" secondItem="m50-g8-fDa" secondAttribute="bottom" constant="8" id="dIz-md-Jx3"/>
                             <constraint firstItem="QSr-6s-3l5" firstAttribute="leading" secondItem="Cav-hq-cf7" secondAttribute="trailing" constant="4" id="eqJ-fE-eja"/>
                             <constraint firstItem="m50-g8-fDa" firstAttribute="leading" secondItem="aze-Lm-F6R" secondAttribute="leading" constant="32" id="jDo-EV-tSX"/>
                             <constraint firstItem="Not-ER-F7k" firstAttribute="top" secondItem="j11-kZ-aCU" secondAttribute="bottom" constant="16" id="mMh-ra-zG5"/>
+                            <constraint firstItem="idV-jX-N1i" firstAttribute="top" secondItem="j11-kZ-aCU" secondAttribute="bottom" constant="16" id="n2d-XL-rPa"/>
                             <constraint firstItem="j3y-fP-ojF" firstAttribute="top" secondItem="j11-kZ-aCU" secondAttribute="bottom" constant="16" id="rGn-uE-Yip"/>
                             <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QSr-6s-3l5" secondAttribute="trailing" symbolic="YES" id="rNU-jM-NdT"/>
                             <constraint firstItem="Cav-hq-cf7" firstAttribute="leading" secondItem="aze-Lm-F6R" secondAttribute="leading" constant="32" id="uAK-uu-THh"/>
                             <constraint firstItem="j3y-fP-ojF" firstAttribute="leading" secondItem="Not-ER-F7k" secondAttribute="trailing" constant="16" id="xcE-fl-Sa5"/>
                             <constraint firstItem="aze-Lm-F6R" firstAttribute="trailing" secondItem="m50-g8-fDa" secondAttribute="trailing" constant="32" id="xor-LB-YrM"/>
+                            <constraint firstItem="idV-jX-N1i" firstAttribute="leading" secondItem="0R1-Su-mc6" secondAttribute="trailing" constant="8" id="zHk-q0-Wtb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2by-KP-Xri"/>
@@ -173,7 +203,9 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="backward.circle.fill" catalog="system" width="128" height="123"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="forward.circle.fill" catalog="system" width="128" height="123"/>
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Blue">
             <color red="0.015686274509803921" green="0.40000000000000002" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
