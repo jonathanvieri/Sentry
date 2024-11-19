@@ -65,8 +65,17 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j11-kZ-aCU" userLabel="Video View">
                                 <rect key="frame" x="0.0" y="119" width="393" height="200"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="t1e-rv-dDX">
+                                        <rect key="frame" x="178" y="81.666666666666657" width="37" height="37"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <color key="color" red="0.94509803920000002" green="0.3294117647" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="t1e-rv-dDX" firstAttribute="centerY" secondItem="j11-kZ-aCU" secondAttribute="centerY" id="GBo-R8-8aG"/>
+                                    <constraint firstItem="t1e-rv-dDX" firstAttribute="centerX" secondItem="j11-kZ-aCU" secondAttribute="centerX" id="Jug-Fn-FBg"/>
                                     <constraint firstAttribute="height" constant="200" id="kJY-t7-Jkx"/>
                                 </constraints>
                             </view>
@@ -169,6 +178,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2by-KP-Xri"/>
                     <connections>
+                        <outlet property="bufferingIndicator" destination="t1e-rv-dDX" id="5qJ-4H-z2w"/>
                         <outlet property="elapsedTimeLabel" destination="Cav-hq-cf7" id="Q9D-4F-mn7"/>
                         <outlet property="playPauseButton" destination="Not-ER-F7k" id="yP9-F0-5n5"/>
                         <outlet property="restartButton" destination="j3y-fP-ojF" id="eVr-aI-XrG"/>
@@ -212,6 +222,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

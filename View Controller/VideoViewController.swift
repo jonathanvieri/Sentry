@@ -16,18 +16,23 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var restartButton: UIButton!
-
+    @IBOutlet weak var bufferingIndicator: UIActivityIndicatorView!
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     var timeObserver: Any?
     var wasPlayingBefore = false
     
+    private var playbackBufferEmptyObserver: NSKeyValueObservation?
+    private var playbackLikelyToKeepUpObserver: NSKeyValueObservation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupVideoPlayer()
         addVideoCompletionObserver()
+        addBufferingObservers()
+        bufferingIndicator.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,6 +60,7 @@ class VideoViewController: UIViewController {
         playerLayer.frame = videoView.bounds
         playerLayer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
+        videoView.addSubview(bufferingIndicator)
         
         // Add periodic time obsever
         addPeriodicTimeObserver()
@@ -79,6 +85,24 @@ class VideoViewController: UIViewController {
             let currentTime = CMTimeGetSeconds(time)
             self.elapsedTimeLabel.text = self.formatTime(seconds: currentTime)
             self.timeSlider.value = Float(currentTime)
+        })
+    }
+    
+    private func addBufferingObservers() {
+        playbackBufferEmptyObserver = player.currentItem?.observe(\.isPlaybackBufferEmpty, options: [.new], changeHandler: { [weak self] item, change in
+            if let isBuffering = change.newValue, isBuffering {
+                print("Video is buffering, showing buffering indicator")
+                self?.bufferingIndicator.isHidden = false
+                self?.bufferingIndicator.startAnimating()
+            }
+        })
+        
+        playbackLikelyToKeepUpObserver = player.currentItem?.observe(\.isPlaybackLikelyToKeepUp, options: [.new], changeHandler: { [weak self] item, change in
+            if let isLikelyToKeepUp = change.newValue, isLikelyToKeepUp {
+                print("Likely to keep up, removing buffering indicator")
+                self?.bufferingIndicator.stopAnimating()
+                self?.bufferingIndicator.isHidden = true
+            }
         })
     }
     
