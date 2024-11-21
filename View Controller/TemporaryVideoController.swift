@@ -1,5 +1,5 @@
 //
-//  VideoViewController.swift
+//  TemporaryVideoViewController.swift
 //  Sentry
 //
 //  Created by Jonathan Vieri on 17/11/24.
@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class VideoViewController: UIViewController {
+class TemporaryVideoController: UIViewController {
 
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
@@ -17,11 +17,18 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var bufferingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var fullscreenButton: UIButton!
+    @IBOutlet weak var overlayLayer: UIView!
+    
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     var timeObserver: Any?
     var wasPlayingBefore = false
+    var areControlsVisible = false
+    var isfullScreen = false
+    var originalVideoContainer: UIView!
+    var originalVideoFrame: CGRect!
     
     private var playbackBufferEmptyObserver: NSKeyValueObservation?
     private var playbackLikelyToKeepUpObserver: NSKeyValueObservation?
@@ -33,6 +40,15 @@ class VideoViewController: UIViewController {
         addVideoCompletionObserver()
         addBufferingObservers()
         bufferingIndicator.isHidden = true
+        
+        // Add Tap Gesture
+        let videoTapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleControlVisibility))
+        overlayLayer.addGestureRecognizer(videoTapGesture)
+        
+        fullscreenButton.alpha = 0.0
+        
+        originalVideoContainer = videoView.superview
+        originalVideoFrame = videoView.frame
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,6 +77,8 @@ class VideoViewController: UIViewController {
         playerLayer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
         videoView.addSubview(bufferingIndicator)
+        videoView.addSubview(overlayLayer)
+        videoView.addSubview(fullscreenButton)
         
         // Add periodic time obsever
         addPeriodicTimeObserver()
@@ -130,9 +148,61 @@ class VideoViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(videoDidFinishPlaying), name: AVPlayerItem.didPlayToEndTimeNotification, object: player.currentItem)
     }
     
+    private func enterFullscreen() {
+        print("Entering full screen")
+        guard let window = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .first(where: { $0.isKeyWindow })
+        else { return }
+        
+        // Remove videoView from its original container
+        videoView.removeFromSuperview()
+
+        // Add videoView to the window
+        window.addSubview(videoView)
+
+        // Expand to fullscreen
+        UIView.animate(withDuration: 0.3) {
+            self.videoView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: window.frame.height)
+            self.videoView.layoutIfNeeded()
+        }
+        
+        // Rotate to landscape
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+    }
+    
+    private func exitFullscreen() {
+        print("Exiting fullscreen")
+        
+        // Remove videoView from the window
+        videoView.removeFromSuperview()
+        
+        // Re-add videoView to original container
+        originalVideoContainer.addSubview(videoView)
+        
+        // Restore original frame
+        UIView.animate(withDuration: 0.3) {
+            self.videoView.frame = self.originalVideoFrame
+            self.videoView.layoutIfNeeded()
+        }
+        
+        // Rotate back to portrait
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+
+    }
+    
     @objc private func videoDidFinishPlaying() {
         print("Video finished playing")
         restartButton.isHidden = false
+    }
+    
+    @objc private func toggleControlVisibility() {
+        print("Control visibility is tapped")
+        areControlsVisible.toggle()
+        UIView.animate(withDuration: 0.2) {
+            self.fullscreenButton.alpha = self.areControlsVisible ? 1.0 : 0.0
+        }
     }
     
     @IBAction func playPauseButtonPressed(_ sender: UIButton) {
@@ -188,4 +258,14 @@ class VideoViewController: UIViewController {
         let backwardedTime = CMTimeSubtract(currentTime, CMTime(seconds: 5, preferredTimescale: 1))
         player.seek(to: backwardedTime)
     }
+    
+    @IBAction func fullscreenButtonPressed(_ sender: UIButton) {
+        if isfullScreen {
+            exitFullscreen()
+        } else {
+            enterFullscreen()
+        }
+        isfullScreen.toggle()
+    }
+    
 }

@@ -24,7 +24,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvA-9f-B1Z">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvA-9f-B1Z" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
                                 <rect key="frame" x="8" y="376" width="100" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-wP-2ug">
@@ -46,7 +46,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="AntiFlashWhite"/>
                                 <constraints>
                                     <constraint firstItem="bJW-wP-2ug" firstAttribute="top" secondItem="308-kb-cum" secondAttribute="bottom" constant="16" id="A51-Th-OH5"/>
                                     <constraint firstItem="308-kb-cum" firstAttribute="top" secondItem="OvA-9f-B1Z" secondAttribute="top" constant="8" id="IiX-4p-C9J"/>
@@ -57,6 +57,17 @@
                                     <constraint firstItem="308-kb-cum" firstAttribute="centerX" secondItem="OvA-9f-B1Z" secondAttribute="centerX" id="paa-lO-2Wg"/>
                                     <constraint firstItem="bJW-wP-2ug" firstAttribute="leading" secondItem="OvA-9f-B1Z" secondAttribute="leading" constant="8" id="y6s-cv-QuS"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

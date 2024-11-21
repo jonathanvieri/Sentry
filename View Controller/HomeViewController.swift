@@ -9,12 +9,18 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    //MARK: - IBOutlets and Variables
+    @IBOutlet weak var cameraView: UIView!
+    
+    
+   
+}
+
+//MARK: - ViewController Lifecycle
+extension HomeViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-    @IBAction func videoButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToVideo", sender: self)
-    }
-    
 }
