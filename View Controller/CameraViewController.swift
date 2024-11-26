@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Vision
 
 class CameraViewController: UIViewController {
 
@@ -14,5 +15,8 @@ class CameraViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
+    private func setupVision() {
+        
+    }
 }
