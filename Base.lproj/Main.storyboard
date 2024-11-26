@@ -18,17 +18,127 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Source " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cq-sre">
-                                <rect key="frame" x="79.666666666666686" y="280" width="234" height="39"/>
+                                <rect key="frame" x="79.666666666666686" y="280.66666666666669" width="234" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL6-m0-8Lj" userLabel="Button Stack Views">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tL6-m0-8Lj" userLabel="Button Stack Views">
                                 <rect key="frame" x="16" y="351" width="361" height="150"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z50-jO-tCv" userLabel="Camera Button View" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="104.33333333333333" height="134"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ius-to-9Tw">
+                                                <rect key="frame" x="14.666666666666664" y="9" width="75" height="72.666666666666671"/>
+                                                <color key="tintColor" name="Gunmetal"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="HTp-zZ-ol3"/>
+                                                    <constraint firstAttribute="height" constant="75" id="hKW-vE-QiD"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIT-uw-tXa">
+                                                <rect key="frame" x="15.333333333333336" y="102" width="73.666666666666657" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ius-to-9Tw" firstAttribute="centerX" secondItem="Z50-jO-tCv" secondAttribute="centerX" id="BKE-Wo-B9q"/>
+                                            <constraint firstAttribute="bottom" secondItem="TIT-uw-tXa" secondAttribute="bottom" constant="8" id="aDB-mF-21Z"/>
+                                            <constraint firstItem="TIT-uw-tXa" firstAttribute="centerX" secondItem="Z50-jO-tCv" secondAttribute="centerX" id="pkk-EQ-Dy1"/>
+                                            <constraint firstItem="Ius-to-9Tw" firstAttribute="top" secondItem="Z50-jO-tCv" secondAttribute="top" constant="8" id="xQD-XJ-8Yk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Td1-uN-APF" userLabel="File Button View" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
+                                        <rect key="frame" x="128.33333333333334" y="8" width="104.33333333333334" height="134"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8fm-v1-AWW">
+                                                <rect key="frame" x="14.666666666666657" y="9.6666666666666643" width="75" height="72"/>
+                                                <color key="tintColor" name="Gunmetal"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="8cV-RB-vqE"/>
+                                                    <constraint firstAttribute="width" constant="75" id="nGF-yj-Q3z"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnB-I1-rW0">
+                                                <rect key="frame" x="18.666666666666657" y="102" width="67.333333333333329" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8fm-v1-AWW" firstAttribute="top" secondItem="Td1-uN-APF" secondAttribute="top" constant="8" id="1Kv-bW-Rh0"/>
+                                            <constraint firstAttribute="bottom" secondItem="GnB-I1-rW0" secondAttribute="bottom" constant="8" id="UUl-wS-1gd"/>
+                                            <constraint firstItem="8fm-v1-AWW" firstAttribute="centerX" secondItem="Td1-uN-APF" secondAttribute="centerX" id="dtt-eU-oni"/>
+                                            <constraint firstItem="GnB-I1-rW0" firstAttribute="centerX" secondItem="Td1-uN-APF" secondAttribute="centerX" id="s9U-Nt-dne"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDl-oh-eq0" userLabel="IP Camera Button View" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
+                                        <rect key="frame" x="248.66666666666671" y="8" width="104.33333333333334" height="134"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="web.camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q8H-1y-oK3">
+                                                <rect key="frame" x="14.666666666666629" y="8.6666666666666643" width="75" height="73.666666666666686"/>
+                                                <color key="tintColor" name="Gunmetal"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="0oC-4u-ini"/>
+                                                    <constraint firstAttribute="height" constant="75" id="ysg-5x-Ddx"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gs-hc-lUT">
+                                                <rect key="frame" x="24.999999999999996" y="102" width="54.666666666666657" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9Gs-hc-lUT" firstAttribute="centerX" secondItem="JDl-oh-eq0" secondAttribute="centerX" id="mgX-DR-zyk"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Gs-hc-lUT" secondAttribute="bottom" constant="8" id="pK2-2G-Yzv"/>
+                                            <constraint firstItem="q8H-1y-oK3" firstAttribute="top" secondItem="JDl-oh-eq0" secondAttribute="top" constant="8" id="uRI-hA-JA8"/>
+                                            <constraint firstItem="q8H-1y-oK3" firstAttribute="centerX" secondItem="JDl-oh-eq0" secondAttribute="centerX" id="vwU-KI-S4h"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="qsx-2M-Moz"/>
                                 </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -236,19 +346,22 @@
         <image name="arrow.clockwise.circle.fill" catalog="system" width="128" height="123"/>
         <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="backward.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="forward.circle.fill" catalog="system" width="128" height="123"/>
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="web.camera.fill" catalog="system" width="119" height="128"/>
         <namedColor name="AntiFlashWhite">
             <color red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gunmetal">
+            <color red="0.16862745098039217" green="0.17647058823529413" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
