@@ -253,7 +253,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ItK-9x-UtE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.94509803920000002" green="0.3294117647" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" name="Gunmetal"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

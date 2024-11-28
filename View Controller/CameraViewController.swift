@@ -43,7 +43,7 @@ class CameraViewController: UIViewController {
         // Create the capture session and start configuring AVCapture Session
         captureSession = AVCaptureSession()
         captureSession.beginConfiguration()
-        captureSession.sessionPreset = .hd1920x1080
+        captureSession.sessionPreset = .high
         
         // Commit the configuration, whether it succeed or there is an error
         defer {
@@ -58,7 +58,8 @@ class CameraViewController: UIViewController {
         } else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
             videoDevice = frontCameraDevice
         } else {
-            fatalError("Missing expected camera device.")
+            print("No camera device found")
+            return
         }
         
         // Add the input to the session
@@ -70,6 +71,16 @@ class CameraViewController: UIViewController {
         
         // Add video output to the session
         let videoOutput = AVCaptureVideoDataOutput()
+        
+        // Drop frames if processing cannot keep up
+        videoOutput.alwaysDiscardsLateVideoFrames = true
+        
+        // Set the video settings to match format for Vision
+        videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+        
+        // Set delegate from Sample Buffer Delegate protocol to process each frame for detecting motion
+        let videoqueue = DispatchQueue(label: "videoQueue")
+        videoOutput.setSampleBufferDelegate(self, queue: videoqueue)
         
         if captureSession.canAddOutput(videoOutput) {
             captureSession.addOutput(videoOutput)
@@ -84,4 +95,12 @@ class CameraViewController: UIViewController {
         view.layer.addSublayer(videoPreviewLayer)
     }
    
+}
+
+//MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+    }
 }
