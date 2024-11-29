@@ -97,23 +97,21 @@ class CameraViewController: UIViewController {
    
     private func handleDetection(_ observations: [VNHumanObservation]) {
         
+        print("Human detected: \(observations.count)")
+        
         // Clear existing bounding boxes if exist
         view.layer.sublayers?.filter { $0 is CAShapeLayer}.forEach({ $0.removeFromSuperlayer() })
+
         
         // Iterate through all the observations
         for observation in observations {
             let boundingBox = observation.boundingBox
             
-            // Convert normalized coordinates to screen coordinates
+            // Convert normalized coordinates to image coordinates
             let screenWidth = view.bounds.width
             let screenHeight = view.bounds.height
             
-            let rect = CGRect(
-                x: boundingBox.minX * screenWidth,
-                y: (1 - boundingBox.minY) * screenHeight,
-                width: boundingBox.width * screenWidth,
-                height: boundingBox.height * screenHeight
-            )
+            let rect = VNImageRectForNormalizedRect(boundingBox, Int(screenWidth), Int(screenHeight))
             
             // Draw the rectangle box
             let shapeLayer = CAShapeLayer()
