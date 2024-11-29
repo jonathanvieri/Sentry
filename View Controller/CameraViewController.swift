@@ -95,6 +95,36 @@ class CameraViewController: UIViewController {
         view.layer.addSublayer(videoPreviewLayer)
     }
    
+    private func handleDetection(_ observations: [VNHumanObservation]) {
+        
+        // Clear existing bounding boxes if exist
+        view.layer.sublayers?.filter { $0 is CAShapeLayer}.forEach({ $0.removeFromSuperlayer() })
+        
+        // Iterate through all the observations
+        for observation in observations {
+            let boundingBox = observation.boundingBox
+            
+            // Convert normalized coordinates to screen coordinates
+            let screenWidth = view.bounds.width
+            let screenHeight = view.bounds.height
+            
+            let rect = CGRect(
+                x: boundingBox.minX * screenWidth,
+                y: (1 - boundingBox.minY) * screenHeight,
+                width: boundingBox.width * screenWidth,
+                height: boundingBox.height * screenHeight
+            )
+            
+            // Draw the rectangle box
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.frame = rect
+            shapeLayer.borderColor = UIColor.red.cgColor
+            shapeLayer.borderWidth = 2.0
+            
+            // Add the rectangle box to the view layer
+            view.layer.addSublayer(shapeLayer)
+        }
+    }
 }
 
 //MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
@@ -102,5 +132,30 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
+        // Convert video frame into format that Vision can process
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        
+        let detectHumansRequest = VNDetectHumanRectanglesRequest { request, error in
+            if let error = error {
+                print("Human detection error found: \(error)")
+                return
+            }
+            
+            // Early exit if there are no detections
+            guard let result = request.results as? [VNHumanObservation] else { return }
+            
+            // Process the result if found a human
+            DispatchQueue.main.async {
+                self.handleDetection(result)
+            }
+        }
+        
+        // Run detection on current frame and call request's completion handler with the result
+        let requestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer)
+        do {
+            try requestHandler.perform([detectHumansRequest])
+        } catch {
+            print("Failed to perform detection: \(error)")
+        }
     }
 }
