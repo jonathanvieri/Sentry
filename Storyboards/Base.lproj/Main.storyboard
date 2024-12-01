@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Source " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cq-sre">
-                                <rect key="frame" x="79.666666666666686" y="280.66666666666669" width="234" height="38.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-cq-sre">
+                                <rect key="frame" x="146.66666666666666" y="280.66666666666669" width="99.666666666666657" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -27,10 +27,10 @@
                                 <rect key="frame" x="16" y="351" width="361" height="150"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z50-jO-tCv" userLabel="Camera Button View" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="104.33333333333333" height="134"/>
+                                        <rect key="frame" x="8" y="8" width="164.66666666666666" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-tr-Bxn" userLabel="Camera Image">
-                                                <rect key="frame" x="14.666666666666664" y="9" width="75" height="72.666666666666671"/>
+                                                <rect key="frame" x="44.666666666666671" y="9" width="75" height="72.666666666666671"/>
                                                 <color key="tintColor" name="Gunmetal"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="h4Y-Kx-6ja"/>
@@ -38,13 +38,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIT-uw-tXa" userLabel="Camera Label">
-                                                <rect key="frame" x="15.333333333333336" y="102" width="73.666666666666657" height="24"/>
+                                                <rect key="frame" x="45.333333333333321" y="102" width="73.666666666666686" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-B5-UAE" userLabel="Camera Tap">
-                                                <rect key="frame" x="8" y="8" width="88.333333333333329" height="118"/>
+                                                <rect key="frame" x="8" y="8" width="148.66666666666666" height="118"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
@@ -75,10 +75,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Td1-uN-APF" userLabel="File Button View" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
-                                        <rect key="frame" x="128.33333333333334" y="8" width="104.33333333333334" height="134"/>
+                                        <rect key="frame" x="188.66666666666663" y="8" width="164.33333333333337" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8fm-v1-AWW" userLabel="Folder Image">
-                                                <rect key="frame" x="14.666666666666657" y="9.6666666666666643" width="75" height="72"/>
+                                                <rect key="frame" x="44.666666666666686" y="9.6666666666666643" width="75" height="72"/>
                                                 <color key="tintColor" name="Gunmetal"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="8cV-RB-vqE"/>
@@ -86,13 +86,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnB-I1-rW0" userLabel="Upload Label">
-                                                <rect key="frame" x="18.666666666666657" y="102" width="67.333333333333329" height="24"/>
+                                                <rect key="frame" x="48.333333333333336" y="102" width="67.333333333333314" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-Hu-W2s" userLabel="File Tap">
-                                                <rect key="frame" x="8" y="8" width="88.333333333333329" height="118"/>
+                                                <rect key="frame" x="8" y="8" width="148.33333333333334" height="118"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
@@ -109,54 +109,6 @@
                                             <constraint firstAttribute="bottom" secondItem="XYU-Hu-W2s" secondAttribute="bottom" constant="8" id="frB-JB-2jX"/>
                                             <constraint firstItem="XYU-Hu-W2s" firstAttribute="top" secondItem="Td1-uN-APF" secondAttribute="top" constant="8" id="jce-IF-avt"/>
                                             <constraint firstItem="GnB-I1-rW0" firstAttribute="centerX" secondItem="Td1-uN-APF" secondAttribute="centerX" id="s9U-Nt-dne"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDl-oh-eq0" userLabel="IP Camera Button View" customClass="HomeOptionView" customModule="Sentry" customModuleProvider="target">
-                                        <rect key="frame" x="248.66666666666671" y="8" width="104.33333333333334" height="134"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="web.camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q8H-1y-oK3" userLabel="CCTV Image">
-                                                <rect key="frame" x="14.666666666666629" y="8.6666666666666643" width="75" height="73.666666666666686"/>
-                                                <color key="tintColor" name="Gunmetal"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="0oC-4u-ini"/>
-                                                    <constraint firstAttribute="height" constant="75" id="ysg-5x-Ddx"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CCTV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gs-hc-lUT" userLabel="CCTV Label">
-                                                <rect key="frame" x="24.999999999999996" y="102" width="54.666666666666657" height="24"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O09-LJ-ccr" userLabel="CCTV Tap">
-                                                <rect key="frame" x="8" y="8" width="88.333333333333329" height="118"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                <connections>
-                                                    <action selector="sourceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rAs-CE-MgF"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="O09-LJ-ccr" secondAttribute="trailing" constant="8" id="D3L-yb-KAK"/>
-                                            <constraint firstItem="O09-LJ-ccr" firstAttribute="top" secondItem="JDl-oh-eq0" secondAttribute="top" constant="8" id="OPd-0h-ws5"/>
-                                            <constraint firstItem="O09-LJ-ccr" firstAttribute="leading" secondItem="JDl-oh-eq0" secondAttribute="leading" constant="8" id="RHb-I5-Ju7"/>
-                                            <constraint firstItem="9Gs-hc-lUT" firstAttribute="centerX" secondItem="JDl-oh-eq0" secondAttribute="centerX" id="mgX-DR-zyk"/>
-                                            <constraint firstAttribute="bottom" secondItem="9Gs-hc-lUT" secondAttribute="bottom" constant="8" id="pK2-2G-Yzv"/>
-                                            <constraint firstAttribute="bottom" secondItem="O09-LJ-ccr" secondAttribute="bottom" constant="8" id="pM2-Qf-uJx"/>
-                                            <constraint firstItem="q8H-1y-oK3" firstAttribute="top" secondItem="JDl-oh-eq0" secondAttribute="top" constant="8" id="uRI-hA-JA8"/>
-                                            <constraint firstItem="q8H-1y-oK3" firstAttribute="centerX" secondItem="JDl-oh-eq0" secondAttribute="centerX" id="vwU-KI-S4h"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -190,7 +142,6 @@
                     <navigationItem key="navigationItem" id="QMB-qe-zGU"/>
                     <connections>
                         <segue destination="sOc-WT-8qi" kind="show" identifier="goToCamera" id="zbv-A6-QYB"/>
-                        <segue destination="jLA-Vc-cPf" kind="show" identifier="goToCCTV" id="W0p-0k-U6G"/>
                         <segue destination="tUZ-z8-sZY" kind="show" identifier="goToUpload" id="4X9-hd-faH"/>
                     </connections>
                 </viewController>
@@ -253,11 +204,20 @@
                     <connections>
                         <outlet property="uploadFromLibraryButton" destination="zFe-xU-vek" id="SMy-CC-akH"/>
                         <outlet property="uploadFromURLButton" destination="CMA-At-AV0" id="gqK-cC-Utd"/>
+                        <segue destination="KAJ-Jv-8CX" kind="presentation" id="tm6-gT-UDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9O-58-YzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="4"/>
+            <point key="canvasLocation" x="1778" y="385"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="9hY-f3-vJD">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="KAJ-Jv-8CX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsT-u7-Bet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2627" y="385"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="6nV-W3-TqO">
@@ -273,23 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKW-42-Rka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="-661"/>
-        </scene>
-        <!--CCTV View Controller-->
-        <scene sceneID="xYm-1U-27d">
-            <objects>
-                <viewController id="jLA-Vc-cPf" userLabel="CCTV View Controller" customClass="CCTVViewController" customModule="Sentry" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gLV-mi-uXW">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="s44-7L-ZWg"/>
-                        <color key="backgroundColor" name="AntiFlashWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ADr-Gd-RME"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfc-SY-xry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1778" y="750"/>
+            <point key="canvasLocation" x="1778" y="-292"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s0P-Zl-ElG">
@@ -316,7 +260,6 @@
         <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="117" height="128"/>
-        <image name="web.camera.fill" catalog="system" width="119" height="128"/>
         <namedColor name="AntiFlashWhite">
             <color red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

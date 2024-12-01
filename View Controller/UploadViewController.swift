@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 import PhotosUI
 
 class UploadViewController: UIViewController {
@@ -15,6 +16,8 @@ class UploadViewController: UIViewController {
     //MARK: - Private Properties
     @IBOutlet weak var uploadFromLibraryButton: UIButton!
     @IBOutlet weak var uploadFromURLButton: UIButton!
+    
+    private var okAction: UIAlertAction!
     
     
     //MARK: - Life Cycle
@@ -32,23 +35,47 @@ class UploadViewController: UIViewController {
         
         alertController.addTextField { textField in
             textField.placeholder = "Video URL"
+            textField.addTarget(self, action: #selector(self.textfieldDidChange), for: .editingChanged)
         }
         
-        let okAction = UIAlertAction(title: "Ok", style: .default) { alertAction in
-            print("Ok action pressed")
+        okAction = UIAlertAction(title: "Ok", style: .default) { alertAction in
             
             if let text = alertController.textFields?.first?.text {
-                print("Text inputted: \(text)")
+                print("Text input: \(text)")
                 
+                self.processVideoURL(url: text)
             }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
+        // Disable OK action at first
+        okAction.isEnabled = false
+        
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc private func textfieldDidChange(_ field: UITextField) {
+        guard let text = field.text else { return }
+        okAction.isEnabled = !text.isEmpty
+    }
+    
+    private func processVideoURL(url: String) {
+        guard let videoURL = URL(string: url) else {
+            presentSimpleAlert(title: "Invalid URL provided", message: "")
+            return
+        }
+        
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        
+        present(playerViewController, animated: true) {
+            player.play()
+        }
     }
     
     private func presentSimpleAlert(title: String, message: String) {

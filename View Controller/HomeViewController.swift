@@ -9,8 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    //MARK: - IBOutlets and Variables
-    
+    //MARK: - IBActions
     @IBAction func sourceButtonTapped(_ sender: UIButton) {
         let tag = sender.tag
         
@@ -21,21 +20,17 @@ class HomeViewController: UIViewController {
         case 2:
             print("File button tapped")
             performSegue(withIdentifier: "goToUpload", sender: self)
-        case 3:
-            print("CCTV button tapped")
-            performSegue(withIdentifier: "goToCCTV", sender: self)
         default:
             print("Invalid tag provided")
         }
     }
     
-}
-
-//MARK: - ViewController Lifecycle
-extension HomeViewController {
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
     }
+    
 }
+
