@@ -26,3 +26,17 @@
 </p>
 
 ## Features
+- **Live Object Detection**: Detects and classifies objects in real time using a live camera feed, displaying bounding boxes and confidence scores.
+- **Video Playback**: Lets users play videos from their library or a given URL, showcasing AVFoundation's video handling capabilities.
+- **Core ML Integration**: Uses the YOLOv3Tiny model for on-device object detection, balancing performance and speed.
+- **Interactive Overlays**: Displays bounding boxes and labels that update dynamically during live object detection.
+- **Learning-Focused**: A hands-on project to explore AVFoundation, Vision, Core ML, and PhotoKit frameworks.
+
+## Technical Overview
+- 
+
+## Usage
+
+
+## License
+This project is licensed under the [MIT License](https://github.com/jonathanvieri/Sentry/blob/main/LICENSE)
